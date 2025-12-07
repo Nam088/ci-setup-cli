@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Nam088/ci-setup-cli/compare/v1.0.2...v1.1.0) (2025-12-07)
+
+
+### Features
+
+* add auto-tagging feature to cli ([2885a7f](https://github.com/Nam088/ci-setup-cli/commit/2885a7f431cb94cb6da45ff6adc3040f3482bed7))
+
 # 1.0.0 (2025-12-07)
 
 
