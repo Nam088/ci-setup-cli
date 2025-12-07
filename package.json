@@ -1,6 +1,6 @@
 {
   "name": "@nam088/ci-setup",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "CLI to verify and setup Semantic Release CI/CD workflow",
   "files": [
     "dist"
