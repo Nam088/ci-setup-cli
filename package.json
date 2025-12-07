@@ -1,7 +1,10 @@
 {
   "name": "@nam088/ci-setup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to verify and setup Semantic Release CI/CD workflow",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "nam088-ci-setup": "./dist/index.js"
   },
