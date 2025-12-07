@@ -1,0 +1,26 @@
+{
+  "name": "@nam088/ci-setup",
+  "version": "1.0.0",
+  "description": "CLI to verify and setup Semantic Release CI/CD workflow",
+  "bin": {
+    "nam088-ci-setup": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.6",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.10.0",
+    "@types/shelljs": "^0.8.15",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}
