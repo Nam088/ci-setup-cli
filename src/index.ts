@@ -186,6 +186,19 @@ jobs:
                 url: `https://github.com/${repoOwner}/${repoName}.git`,
             };
             fs.writeFileSync(packageJsonPath, JSON.stringify(pkg, null, 2));
+
+            // 5. Check and create Git Tag
+            const currentVersion = pkg.version;
+            if (currentVersion) {
+                const tagName = `v${currentVersion}`;
+                if (shell.exec(`git rev-parse ${tagName}`, { silent: true }).code !== 0) {
+                    console.log(chalk.yellow(`\nCreating git tag ${tagName}...`));
+                    shell.exec(`git tag ${tagName}`);
+                    console.log(chalk.green(`Tag ${tagName} created.`));
+                } else {
+                    console.log(chalk.dim(`\nTag ${tagName} already exists.`));
+                }
+            }
         }
 
         console.log(chalk.green('\nSetup Complete!'));
@@ -195,7 +208,10 @@ jobs:
         console.log(`   - Owner: ${chalk.bold(repoOwner)}`);
         console.log(`   - Repo: ${chalk.bold(repoName)}`);
         console.log(`   - Workflow: ${chalk.bold('release.yml')}`);
-        console.log('3. Push changes: git add . && git commit -m "ci: setup" && git push');
+        console.log('3. Push changes:');
+        console.log(chalk.white('   git add .'));
+        console.log(chalk.white('   git commit -m "ci: setup"'));
+        console.log(chalk.white('   git push --follow-tags'));
     });
 
 program.parse(process.argv);
